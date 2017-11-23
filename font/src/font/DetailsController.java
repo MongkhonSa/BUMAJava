@@ -47,7 +47,8 @@ public class DetailsController implements Initializable  {
     ObservableList<String> subFoodList = FXCollections.observableArrayList("Weight","Quantity");
     ObservableList<String> subBookList = FXCollections.observableArrayList("Cartoon","Magazine","Fiction");
     ObservableList<String> dummy = FXCollections.observableArrayList();
-     
+     Object newItems = null;
+     Items items2;
      @FXML
      private ComboBox typeBox; 
      @FXML
@@ -258,13 +259,13 @@ public class DetailsController implements Initializable  {
     }
        @FXML
     void EditButton(ActionEvent event) {
-       Object newItems = null;
+       
        ConnectDB  newConnectDB=new ConnectDB(); 
        ObservableList<Items> selectedRows,allItems;
        allItems = tableView.getItems();
        selectedRows=tableView.getSelectionModel().getSelectedItems();
         for(Items items:selectedRows){  
-        if(typeBox.getValue().equals(typeBox1.getValue())&&subTypeBox.getValue().equals(subTypeBox1.getValue())){
+        if(typeBox.getValue().equals(typeBox1.getValue().toString())&&subTypeBox.getValue().equals(subTypeBox1.getValue().toString())){
         
         newConnectDB.editDB(items,typeBox1.getValue(),subTypeBox1.getValue(),Long.parseLong(TextFieldID.getText()),
                         TextFieldName.getText(),TextFieldEXP.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
@@ -272,9 +273,35 @@ public class DetailsController implements Initializable  {
                         TextFieldFactory.getText(),Double.parseDouble(TextFieldAmount.getText()),
                         Double.parseDouble(TextFieldPrice.getText()),
                         Double.parseDouble(TextFieldProfit.getText()));
+                        newType.setText((String) typeBox.getValue() +" to "+typeBox1.getValue());
+                        newSubType.setText((String) subTypeBox.getValue()+" to "+subTypeBox1.getValue());
+                        newId.setText(String.valueOf(items.getId())+" to "+TextFieldID.getText());
+                        newName.setText(items.getName()+" to "+TextFieldName.getText());
+                        newArrivalDate.setText(items.getArrivalDate()+" to "+TextFieldArrivalDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+                        newEXP.setText(items.getEXP()+" to "+TextFieldEXP.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+                        newPrice.setText(String.valueOf(items.getPrice())+" to "+Double.parseDouble(TextFieldPrice.getText()));
+                        newAmount.setText(String.valueOf(items.getAmount())+" to "+Double.parseDouble(TextFieldAmount.getText()));
+                        newProfit.setText(String.valueOf(items.getProfit())+" to "+Double.parseDouble(TextFieldProfit.getText()));
+                        newTotalPrice.setText(String.valueOf(items.getTotalPrice())+" to "+((Double.parseDouble(TextFieldPrice.getText())+Double.parseDouble(TextFieldProfit.getText()))*(1+Items.getVAT())) );
+                        newFactory.setText(String.valueOf(items.getFactory())+" to1 "+TextFieldFactory.getText());
+                        newItems = items;  
+                    
+                        confirmStackPane2.setVisible(true);
         }
-        else{
-                newConnectDB.DeleteObjectDB(items,typeBox.getValue(),subTypeBox.getValue());
+        else{          
+                items2 = items;
+    
+                        newType.setText( typeBox.getValue().toString() +" to ");
+                        newSubType.setText(subTypeBox.getValue().toString()+" to ");
+                        newId.setText(String.valueOf(items.getId())+" to ");
+                        newName.setText(items.getName()+" to ");
+                        newArrivalDate.setText(items.getArrivalDate()+" to ");
+                        newEXP.setText(items.getEXP()+" to ");
+                        newPrice.setText(String.valueOf(items.getPrice())+" to ");
+                        newAmount.setText(String.valueOf(items.getAmount())+" to ");
+                        newProfit.setText(String.valueOf(items.getProfit())+" to ");
+                        newTotalPrice.setText(String.valueOf(items.getTotalPrice())+" to " );
+                        newFactory.setText(String.valueOf(items.getFactory())+" to ");
                 if(typeBox1.getValue().equals("Alcohol")){
            
              Alcohol newAlcohol= new Alcohol(Long.parseLong(TextFieldID.getText()),
@@ -283,18 +310,18 @@ public class DetailsController implements Initializable  {
                 TextFieldFactory.getText(),Double.parseDouble(TextFieldAmount.getText()),
                 Double.parseDouble(TextFieldPrice.getText()),
                 Double.parseDouble(TextFieldProfit.getText()));
-             
-                newType.setText((String) typeBox1.getValue());
-                newSubType.setText((String) subTypeBox1.getValue());
-                newId.setText(String.valueOf(newAlcohol.getId()));
-                newName.setText(newAlcohol.getName());
-                newEXP.setText(newAlcohol.getEXP());
-                newArrivalDate.setText(newAlcohol.getArrivalDate());
-                newPrice.setText(String.valueOf(newAlcohol.getPrice()));
-                newAmount.setText(String.valueOf(newAlcohol.getAmount()));
-                newProfit.setText(String.valueOf(newAlcohol.getProfit()));
-                newTotalPrice.setText(String.valueOf(newAlcohol.getTotalPrice()));
-                newFactory.setText(String.valueOf(newAlcohol.getFactory()));
+                
+                newType.setText( (String)newType.getText()+ typeBox1.getValue());
+                newSubType.setText((String)newSubType.getText());
+                newId.setText(newId.getText()+String.valueOf(newAlcohol.getId()));
+                newName.setText(newName.getText()+newAlcohol.getName());
+                newEXP.setText(newEXP.getText()+newAlcohol.getEXP());
+                newArrivalDate.setText(newArrivalDate.getText()+newAlcohol.getArrivalDate());
+                newPrice.setText(newPrice.getText()+String.valueOf(newAlcohol.getPrice()));
+                newAmount.setText(newAmount.getText()+String.valueOf(newAlcohol.getAmount()));
+                newProfit.setText(newProfit.getText()+String.valueOf(newAlcohol.getProfit()));
+                newTotalPrice.setText(newTotalPrice.getText()+String.valueOf(newAlcohol.getTotalPrice()));
+                newFactory.setText(newFactory.getText()+String.valueOf(newAlcohol.getFactory()));
                 newItems = newAlcohol;
                 
                 confirmStackPane2.setVisible(true);
@@ -310,97 +337,97 @@ public class DetailsController implements Initializable  {
                     Double.parseDouble(TextFieldPrice.getText()),
                     Double.parseDouble(TextFieldProfit.getText()));
                     
-                    newType.setText((String) typeBox1.getValue());
-                    newSubType.setText((String) subTypeBox1.getValue());
-                    newId.setText(String.valueOf(newDrinks.getId()));
-                    newName.setText(newDrinks.getName());
-                    newArrivalDate.setText(newDrinks.getArrivalDate());
-                    newEXP.setText(newDrinks.getEXP());
-                    newPrice.setText(String.valueOf(newDrinks.getPrice()));
-                    newAmount.setText(String.valueOf(newDrinks.getAmount()));
-                    newProfit.setText(String.valueOf(newDrinks.getProfit()));
-                    newTotalPrice.setText(String.valueOf(newDrinks.getTotalPrice()));
-                    newFactory.setText(String.valueOf(newDrinks.getFactory()));
-                    newItems = newDrinks;
+                newType.setText( (String)newType.getText()+ typeBox1.getValue());
+                newSubType.setText((String)newSubType.getText());
+                newId.setText(newId.getText()+String.valueOf(newDrinks.getId()));
+                newName.setText(newName.getText()+newDrinks.getName());
+                newEXP.setText(newEXP.getText()+newDrinks.getEXP());
+                newArrivalDate.setText(newArrivalDate.getText()+newDrinks.getArrivalDate());
+                newPrice.setText(newPrice.getText()+String.valueOf(newDrinks.getPrice()));
+                newAmount.setText(newAmount.getText()+String.valueOf(newDrinks.getAmount()));
+                newProfit.setText(newProfit.getText()+String.valueOf(newDrinks.getProfit()));
+                newTotalPrice.setText(newTotalPrice.getText()+String.valueOf(newDrinks.getTotalPrice()));
+                newFactory.setText(newFactory.getText()+String.valueOf(newDrinks.getFactory()));
+                newItems = newDrinks;
                 
-                    confirmStackPane.setVisible(true);
+                    confirmStackPane2.setVisible(true);
          }
         else if(typeBox1.getValue().equals("Food")){
-            if(subTypeBox.getValue().equals("Weight")){
-                   Weight newWeight = new Weight(Long.parseLong(TextFieldID.getText()),
+            if(subTypeBox1.getValue().equals("Weight")){
+                Weight newWeight = new Weight(Long.parseLong(TextFieldID.getText()),
                         TextFieldName.getText(),TextFieldEXP.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
                            ,TextFieldArrivalDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")),
                         TextFieldFactory.getText(),Double.parseDouble(TextFieldAmount.getText()),
                         Double.parseDouble(TextFieldPrice.getText()),
                         Double.parseDouble(TextFieldProfit.getText()));
                             
-                        newType.setText((String) typeBox.getValue());
-                        newSubType.setText((String) subTypeBox.getValue());
-                        newId.setText(String.valueOf(newWeight.getId()));
-                        newName.setText(newWeight.getName());
-                        newArrivalDate.setText(newWeight.getArrivalDate());
-                        newEXP.setText(newWeight.getEXP());
-                        newPrice.setText(String.valueOf(newWeight.getPrice()));
-                        newAmount.setText(String.valueOf(newWeight.getAmount()));
-                        newProfit.setText(String.valueOf(newWeight.getProfit()));
-                        newTotalPrice.setText(String.valueOf(newWeight.getTotalPrice()));
-                        newFactory.setText(String.valueOf(newWeight.getFactory()));
-                        newItems = newWeight;    
+                newType.setText( (String)newType.getText()+ typeBox1.getValue());
+                newSubType.setText((String)newSubType.getText()+ subTypeBox1.getValue().toString());
+                newId.setText(newId.getText()+String.valueOf(newWeight.getId()));
+                newName.setText(newName.getText()+newWeight.getName());
+                newEXP.setText(newEXP.getText()+newWeight.getEXP());
+                newArrivalDate.setText(newArrivalDate.getText()+newWeight.getArrivalDate());
+                newPrice.setText(newPrice.getText()+String.valueOf(newWeight.getPrice()));
+                newAmount.setText(newAmount.getText()+String.valueOf(newWeight.getAmount()));
+                newProfit.setText(newProfit.getText()+String.valueOf(newWeight.getProfit()));
+                newTotalPrice.setText(newTotalPrice.getText()+String.valueOf(newWeight.getTotalPrice()));
+                newFactory.setText(newFactory.getText()+String.valueOf(newWeight.getFactory()));
+                newItems = newWeight;   
                    
-                        confirmStackPane.setVisible(true);
+                        confirmStackPane2.setVisible(true);
              }
             else if(subTypeBox1.getValue().equals("Quantity")){
                     
-                    Quantity newQuantity = new Quantity(Long.parseLong(TextFieldID.getText()),
+                Quantity newQuantity = new Quantity(Long.parseLong(TextFieldID.getText()),
                         TextFieldName.getText(),TextFieldEXP.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
                             ,TextFieldArrivalDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")),
                         TextFieldFactory.getText(),Double.parseDouble(TextFieldAmount.getText()),
                         Double.parseDouble(TextFieldPrice.getText()),
                         Double.parseDouble(TextFieldProfit.getText()));
                             
-                        newType.setText((String) typeBox.getValue());
-                        newSubType.setText((String) subTypeBox.getValue());
-                        newId.setText(String.valueOf(newQuantity.getId()));
-                        newName.setText(newQuantity.getName());
-                        newArrivalDate.setText(newQuantity.getArrivalDate());
-                        newEXP.setText(newQuantity.getEXP());
-                        newPrice.setText(String.valueOf(newQuantity.getPrice()));
-                        newAmount.setText(String.valueOf(newQuantity.getAmount()));
-                        newProfit.setText(String.valueOf(newQuantity.getProfit()));
-                        newTotalPrice.setText(String.valueOf(newQuantity.getTotalPrice()));
-                        newFactory.setText(String.valueOf(newQuantity.getFactory()));
-                        newItems = newQuantity;    
+                newType.setText( (String)newType.getText()+ typeBox1.getValue());
+                newSubType.setText((String)newSubType.getText()+ subTypeBox1.getValue().toString());
+                newId.setText(newId.getText()+String.valueOf(newQuantity.getId()));
+                newName.setText(newName.getText()+newQuantity.getName());
+                newEXP.setText(newEXP.getText()+newQuantity.getEXP());
+                newArrivalDate.setText(newArrivalDate.getText()+newQuantity.getArrivalDate());
+                newPrice.setText(newPrice.getText()+String.valueOf(newQuantity.getPrice()));
+                newAmount.setText(newAmount.getText()+String.valueOf(newQuantity.getAmount()));
+                newProfit.setText(newProfit.getText()+String.valueOf(newQuantity.getProfit()));
+                newTotalPrice.setText(newTotalPrice.getText()+String.valueOf(newQuantity.getTotalPrice()));
+                newFactory.setText(newFactory.getText()+String.valueOf(newQuantity.getFactory()));
+                newItems = newQuantity;       
                     
-                        confirmStackPane.setVisible(true);
+                        confirmStackPane2.setVisible(true);
             }
             
              
          }
         else if(typeBox1.getValue().equals("Book")){
-            if(subTypeBox.getValue().equals("Cartoon")){
-                    Cartoon newCartoon = new Cartoon(Long.parseLong(TextFieldID.getText()),
+            if(subTypeBox1.getValue().equals("Cartoon")){
+                Cartoon newCartoon = new Cartoon(Long.parseLong(TextFieldID.getText()),
                         TextFieldName.getText(),TextFieldEXP.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
                             ,TextFieldArrivalDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")),
                         TextFieldFactory.getText(),Double.parseDouble(TextFieldAmount.getText()),
                         Double.parseDouble(TextFieldPrice.getText()),
                         Double.parseDouble(TextFieldProfit.getText()));
                         
-                        newType.setText((String) typeBox.getValue());
-                        newSubType.setText((String) subTypeBox.getValue());
-                        newId.setText(String.valueOf(newCartoon.getId()));
-                        newName.setText(newCartoon.getName());
-                        newArrivalDate.setText(newCartoon.getArrivalDate());
-                        newEXP.setText(newCartoon.getEXP());
-                        newPrice.setText(String.valueOf(newCartoon.getPrice()));
-                        newAmount.setText(String.valueOf(newCartoon.getAmount()));
-                        newProfit.setText(String.valueOf(newCartoon.getProfit()));
-                        newTotalPrice.setText(String.valueOf(newCartoon.getTotalPrice()));
-                        newFactory.setText(String.valueOf(newCartoon.getFactory()));
-                        newItems = newCartoon;    
+                newType.setText( (String)newType.getText()+ typeBox1.getValue());
+                newSubType.setText((String)newSubType.getText()+ subTypeBox1.getValue().toString());
+                newId.setText(newId.getText()+String.valueOf(newCartoon.getId()));
+                newName.setText(newName.getText()+newCartoon.getName());
+                newEXP.setText(newEXP.getText()+newCartoon.getEXP());
+                newArrivalDate.setText(newArrivalDate.getText()+newCartoon.getArrivalDate());
+                newPrice.setText(newPrice.getText()+String.valueOf(newCartoon.getPrice()));
+                newAmount.setText(newAmount.getText()+String.valueOf(newCartoon.getAmount()));
+                newProfit.setText(newProfit.getText()+String.valueOf(newCartoon.getProfit()));
+                newTotalPrice.setText(newTotalPrice.getText()+String.valueOf(newCartoon.getTotalPrice()));
+                newFactory.setText(newFactory.getText()+String.valueOf(newCartoon.getFactory()));
+                newItems = newCartoon;    
                     
-                        confirmStackPane.setVisible(true);
+                        confirmStackPane2.setVisible(true);
              }
-            else if(subTypeBox.getValue().equals("Magazine")){
+            else if(subTypeBox1.getValue().equals("Magazine")){
                     Magazine newMagazine = new Magazine(Long.parseLong(TextFieldID.getText()),
                         TextFieldName.getText(),TextFieldEXP.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
                             ,TextFieldArrivalDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")),
@@ -408,22 +435,22 @@ public class DetailsController implements Initializable  {
                         Double.parseDouble(TextFieldPrice.getText()),
                         Double.parseDouble(TextFieldProfit.getText()));
                         
-                        newType.setText((String) typeBox.getValue());
-                        newSubType.setText((String) subTypeBox.getValue());
-                        newId.setText(String.valueOf(newMagazine.getId()));
-                        newName.setText(newMagazine.getName());
-                        newArrivalDate.setText(newMagazine.getArrivalDate());
-                        newEXP.setText(newMagazine.getEXP());
-                        newPrice.setText(String.valueOf(newMagazine.getPrice()));
-                        newAmount.setText(String.valueOf(newMagazine.getAmount()));
-                        newProfit.setText(String.valueOf(newMagazine.getProfit()));
-                        newTotalPrice.setText(String.valueOf(newMagazine.getTotalPrice()));
-                        newFactory.setText(String.valueOf(newMagazine.getFactory()));
-                        newItems = newMagazine;  
+                newType.setText( (String)newType.getText()+ typeBox1.getValue());
+                newSubType.setText((String)newSubType.getText()+ subTypeBox1.getValue().toString());
+                newId.setText(newId.getText()+String.valueOf(newMagazine.getId()));
+                newName.setText(newName.getText()+newMagazine.getName());
+                newEXP.setText(newEXP.getText()+newMagazine.getEXP());
+                newArrivalDate.setText(newArrivalDate.getText()+newMagazine.getArrivalDate());
+                newPrice.setText(newPrice.getText()+String.valueOf(newMagazine.getPrice()));
+                newAmount.setText(newAmount.getText()+String.valueOf(newMagazine.getAmount()));
+                newProfit.setText(newProfit.getText()+String.valueOf(newMagazine.getProfit()));
+                newTotalPrice.setText(newTotalPrice.getText()+String.valueOf(newMagazine.getTotalPrice()));
+                newFactory.setText(newFactory.getText()+String.valueOf(newMagazine.getFactory()));
+                newItems = newMagazine;  
                         
-                        confirmStackPane.setVisible(true);
+                        confirmStackPane2.setVisible(true);
              }
-            else if(subTypeBox.getValue().equals("Fiction")){
+            else if(subTypeBox1.getValue().equals("Fiction")){
                     Fiction newFiction = new Fiction(Long.parseLong(TextFieldID.getText()),
                         TextFieldName.getText(),TextFieldEXP.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
                             ,TextFieldArrivalDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")),
@@ -431,34 +458,31 @@ public class DetailsController implements Initializable  {
                         Double.parseDouble(TextFieldPrice.getText()),
                         Double.parseDouble(TextFieldProfit.getText()));
                     
-                        newType.setText((String) typeBox.getValue());
-                        newSubType.setText((String) subTypeBox.getValue());
-                        newId.setText(String.valueOf(newFiction.getId()));
-                        newName.setText(newFiction.getName());
-                        newArrivalDate.setText(newFiction.getArrivalDate());
-                        newEXP.setText(newFiction.getEXP());
-                        newPrice.setText(String.valueOf(newFiction.getPrice()));
-                        newAmount.setText(String.valueOf(newFiction.getAmount()));
-                        newProfit.setText(String.valueOf(newFiction.getProfit()));
-                        newTotalPrice.setText(String.valueOf(newFiction.getTotalPrice()));
-                        newFactory.setText(String.valueOf(newFiction.getFactory()));
-                        newItems = newFiction;  
+                newType.setText( (String)newType.getText()+ typeBox1.getValue());
+                newSubType.setText((String)newSubType.getText()+ subTypeBox1.getValue().toString());
+                newId.setText(newId.getText()+String.valueOf(newFiction.getId()));
+                newName.setText(newName.getText()+newFiction.getName());
+                newEXP.setText(newEXP.getText()+newFiction.getEXP());
+                newArrivalDate.setText(newArrivalDate.getText()+newFiction.getArrivalDate());
+                newPrice.setText(newPrice.getText()+String.valueOf(newFiction.getPrice()));
+                newAmount.setText(newAmount.getText()+String.valueOf(newFiction.getAmount()));
+                newProfit.setText(newProfit.getText()+String.valueOf(newFiction.getProfit()));
+                newTotalPrice.setText(newTotalPrice.getText()+String.valueOf(newFiction.getTotalPrice()));
+                newFactory.setText(newFactory.getText()+String.valueOf(newFiction.getFactory()));
+                newItems = newFiction;  
                     
-                        confirmStackPane.setVisible(true);
+                        confirmStackPane2.setVisible(true);
              }
              
          }
-                   newConnectDB.AddObjectToDB(newItems);
+                   
         }
         
         }
         
         EditStackPane.setVisible(false); // close edit page
         // refresh table
-       typeBox.setValue("");
-       subTypeBox.setValue("");
-       typeBox.setValue(typeBox1.getValue());
-       subTypeBox.setValue(subTypeBox1.getValue());
+       
     }
      @FXML
    public void typeChoice(){
@@ -511,11 +535,21 @@ public class DetailsController implements Initializable  {
      }
       @FXML
     void ConfirmEdit(ActionEvent event) {
-
+        if(newItems !=null&&items2!=null){
+        ConnectDB newConnectDB = new ConnectDB();
+        newConnectDB.DeleteObjectDB(items2,typeBox.getValue().toString(),subTypeBox.getValue().toString());
+        newConnectDB.AddObjectToDB(newItems);
+        }
+        
+        typeBox.setValue("");
+        subTypeBox.setValue("");
+        confirmStackPane2.setVisible(false);
+        typeBox.setValue(typeBox1.getValue());
+        subTypeBox.setValue(subTypeBox1.getValue());
     }
       @FXML
     void CancelEdit(ActionEvent event) {
-
+        confirmStackPane2.setVisible(false);
     }
 
          @FXML

@@ -255,76 +255,76 @@
                            <children>
                               <Button layoutX="90.0" layoutY="525.0" mnemonicParsing="false" onAction="#ConfirmEdit" prefHeight="50.0" prefWidth="100.0" stylesheets="@button2.css" text="CONFIRM" />
                               <Button layoutX="300.0" layoutY="525.0" mnemonicParsing="false" onAction="#CancelEdit" prefHeight="50.0" prefWidth="100.0" stylesheets="@button2.css" text="CANCLE" />
-                              <Text layoutX="65.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TYPE" wrappingWidth="55.9210205078125">
+                              <Text layoutX="34.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TYPE" wrappingWidth="55.9210205078125">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Text>
-                              <Text layoutX="65.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SUPTYPE" wrappingWidth="94.39471435546875">
+                              <Text layoutX="34.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SUPTYPE" wrappingWidth="94.39471435546875">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Text>
-                              <Text layoutX="65.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" wrappingWidth="41.39404296875">
+                              <Text layoutX="34.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" wrappingWidth="41.39404296875">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Text>
-                              <Text layoutX="65.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NAME" wrappingWidth="61.1995849609375">
+                              <Text layoutX="34.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NAME" wrappingWidth="61.1995849609375">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Text>
-                              <Text layoutX="65.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Arrival Date" wrappingWidth="110.49627685546875">
+                              <Text layoutX="34.0" layoutY="258.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Arrival Date" wrappingWidth="110.49627685546875">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Text>
-                              <Text layoutX="65.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EXP" wrappingWidth="41.39404296875">
+                              <Text layoutX="34.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EXP" wrappingWidth="41.39404296875">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Text>
-                              <Text layoutX="65.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PRICE" wrappingWidth="61.1995849609375">
+                              <Text layoutX="34.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PRICE" wrappingWidth="61.1995849609375">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Text>
-                              <Text layoutX="65.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AMOUNT" wrappingWidth="93.0008544921875">
+                              <Text layoutX="34.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AMOUNT" wrappingWidth="93.0008544921875">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Text>
-                              <Text layoutX="65.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PROFIT" wrappingWidth="72.09515380859375">
+                              <Text layoutX="34.0" layoutY="398.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PROFIT" wrappingWidth="72.09515380859375">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Text>
-                              <Text layoutX="65.0" layoutY="435.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Price" wrappingWidth="102.75702857971191">
+                              <Text layoutX="34.0" layoutY="433.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Price" wrappingWidth="102.75702857971191">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Text>
-                              <Text layoutX="65.0" layoutY="470.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FACTORY" wrappingWidth="95.09136962890625">
+                              <Text layoutX="34.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FACTORY" wrappingWidth="95.09136962890625">
                                  <font>
                                     <Font size="20.0" />
                                  </font>
                               </Text>
-                              <Label fx:id="newType" layoutX="220.0" layoutY="105.0" prefHeight="18.0" prefWidth="231.0" text="newType">
+                              <Label fx:id="newType" layoutX="189.0" layoutY="103.0" prefHeight="21.0" prefWidth="266.0" text="newType">
                                  <font>
                                     <Font size="15.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="newSubType" layoutX="220.0" layoutY="140.0" prefHeight="18.0" prefWidth="231.0" text="newSubType" />
-                              <Label fx:id="newId" layoutX="220.0" layoutY="215.0" prefHeight="18.0" prefWidth="231.0" text="newId" />
-                              <Label fx:id="newName" layoutX="220.0" layoutY="175.0" prefHeight="18.0" prefWidth="231.0" text="newName" />
-                              <Label fx:id="newArrivalDate" layoutX="220.0" layoutY="245.0" prefHeight="18.0" prefWidth="231.0" text="newArrivalDate" />
-                              <Label fx:id="newEXP" layoutX="220.0" layoutY="280.0" prefHeight="18.0" prefWidth="231.0" text="newEXP" />
-                              <Label fx:id="newPrice" layoutX="220.0" layoutY="315.0" prefHeight="18.0" prefWidth="231.0" text="newPrice" />
-                              <Label fx:id="newAmount" layoutX="220.0" layoutY="350.0" prefHeight="18.0" prefWidth="231.0" text="newAmount" />
-                              <Label fx:id="newProfit" layoutX="220.0" layoutY="385.0" prefHeight="18.0" prefWidth="231.0" text="newProfit" />
-                              <Label fx:id="newFactory" layoutX="220.0" layoutY="420.0" prefHeight="18.0" prefWidth="231.0" text="newFactory" />
-                              <Label fx:id="newTotalPrice" layoutX="220.0" layoutY="455.0" prefHeight="18.0" prefWidth="231.0" text="newTotalPrice" />
+                              <Label fx:id="newSubType" layoutX="189.0" layoutY="138.0" prefHeight="18.0" prefWidth="266.0" text="newSubType" />
+                              <Label fx:id="newId" layoutX="189.0" layoutY="213.0" prefHeight="18.0" prefWidth="266.0" text="newId" />
+                              <Label fx:id="newName" layoutX="189.0" layoutY="173.0" prefHeight="18.0" prefWidth="266.0" text="newName" />
+                              <Label fx:id="newArrivalDate" layoutX="189.0" layoutY="243.0" prefHeight="18.0" prefWidth="266.0" text="newArrivalDate" />
+                              <Label fx:id="newEXP" layoutX="189.0" layoutY="278.0" prefHeight="18.0" prefWidth="266.0" text="newEXP" />
+                              <Label fx:id="newPrice" layoutX="189.0" layoutY="313.0" prefHeight="18.0" prefWidth="266.0" text="newPrice" />
+                              <Label fx:id="newAmount" layoutX="189.0" layoutY="348.0" prefHeight="18.0" prefWidth="266.0" text="newAmount" />
+                              <Label fx:id="newProfit" layoutX="189.0" layoutY="383.0" prefHeight="18.0" prefWidth="266.0" text="newProfit" />
+                              <Label fx:id="newFactory" layoutX="189.0" layoutY="451.0" prefHeight="18.0" prefWidth="266.0" text="newFactory" />
+                              <Label fx:id="newTotalPrice" layoutX="189.0" layoutY="416.0" prefHeight="18.0" prefWidth="266.0" text="newTotalPrice" />
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#49739a" height="87.0" stroke="#49739a" strokeType="INSIDE" width="474.0" />
                               <Text fill="#e0ddce" layoutX="175.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EDIT" wrappingWidth="104.18310546875">
                                  <font>

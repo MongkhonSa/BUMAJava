@@ -5,13 +5,16 @@
  */
 package backend;
 
+import javax.persistence.Entity;
+
 /**
  *
  * @author ITokkyZ
  */
+@Entity
 public class Items {
     public long key;
-    public static double VAT;// เอา static ออก
+    public static double VAT;// 
     public long id;
     public String name;
     public String EXP;
