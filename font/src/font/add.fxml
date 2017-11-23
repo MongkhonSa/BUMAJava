@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDialogLayout?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #778899;" stylesheets="@button2.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="font.AddController">
+   <children>
+      <TextField fx:id="TextFieldID" layoutX="150.0" layoutY="240.0" prefHeight="50.0" prefWidth="400.0" />
+      <TextField fx:id="TextFieldName" layoutX="150.0" layoutY="360.0" prefHeight="50.0" prefWidth="400.0" />
+      <TextField fx:id="TextFieldPrice" layoutX="150.0" layoutY="480.0" prefHeight="50.0" prefWidth="400.0" />
+      <TextField fx:id="TextFieldAmount" layoutX="150.0" layoutY="600.0" prefHeight="50.0" prefWidth="400.0" />
+      <TextField fx:id="TextFieldFactory" layoutX="750.0" layoutY="480.0" prefHeight="50.0" prefWidth="400.0" />
+      <TextField fx:id="TextFieldProfit" layoutX="750.0" layoutY="600.0" prefHeight="50.0" prefWidth="400.0" />
+      <Text fill="#e0ddce" layoutX="167.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" x="-17.0" y="30.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fill="#e0ddce" strokeType="OUTSIDE" strokeWidth="0.0" text="NAME" x="150.0" y="350.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fill="#e0ddce" strokeType="OUTSIDE" strokeWidth="0.0" text="PRICE" x="150.0" y="470.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fill="#e0ddce" strokeType="OUTSIDE" strokeWidth="0.0" text="AMOUNT" x="150.0" y="590.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fill="#e0ddce" strokeType="OUTSIDE" strokeWidth="0.0" text="arrivalDate" x="750.0" y="235.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fill="#e0ddce" strokeType="OUTSIDE" strokeWidth="0.0" text="EXP" x="750.0" y="350.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fill="#e0ddce" strokeType="OUTSIDE" strokeWidth="0.0" text="FACTORY" x="750.0" y="470.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <DatePicker fx:id="TextFieldArrivelDate" layoutX="753.0" layoutY="243.0" prefHeight="50.0" prefWidth="400.0" />
+      <DatePicker fx:id="TextFieldEXP" layoutX="753.0" layoutY="360.0" prefHeight="50.0" prefWidth="400.0" />
+      <Text fill="#e0ddce" strokeType="OUTSIDE" strokeWidth="0.0" text="PROFIT" x="750.0" y="590.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Button layoutX="1165.0" layoutY="655.0" mnemonicParsing="false" onAction="#AddToObect" prefHeight="50.0" prefWidth="100.0" text="ADD" />
+      <Button layoutX="15.0" layoutY="655.0" mnemonicParsing="false" onAction="#AddBackMenu" prefHeight="50.0" prefWidth="100.0" text="MENU" />
+      <ImageView fitHeight="193.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/add.png" />
+         </image>
+      </ImageView>
+      <ComboBox fx:id="typeBox" layoutX="231.0" layoutY="156.0" onAction="#typeChoice" prefHeight="40.0" prefWidth="318.0" />
+      <ComboBox fx:id="subTypeBox" layoutX="875.0" layoutY="158.0" prefHeight="36.0" prefWidth="277.0" />
+      <Text fill="#e0ddce" strokeType="OUTSIDE" strokeWidth="0.0" text="SUBTYPE" x="750.0" y="195.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text fill="#e0ddce" strokeType="OUTSIDE" strokeWidth="0.0" text="TYPE" x="150.0" y="195.0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <StackPane fx:id="confirmStackPane" prefHeight="720.0" prefWidth="1280.0" visible="false">
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <JFXDialogLayout layoutX="400.0" layoutY="10.0" prefHeight="640.0" prefWidth="475.0">
+                     <children>
+                        <AnchorPane prefHeight="626.0" prefWidth="475.0" style="-fx-background-color: #e0ddce;">
+                           <children>
+                              <Button layoutX="90.0" layoutY="525.0" mnemonicParsing="false" onAction="#ConfirmAdd" prefHeight="50.0" prefWidth="100.0" text="CONFIRM" />
+                              <Button layoutX="275.0" layoutY="525.0" mnemonicParsing="false" onAction="#ReloadPageAdd" prefHeight="50.0" prefWidth="100.0" text="CANCLE" />
+                              <Text layoutX="65.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TYPE" wrappingWidth="55.9210205078125">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font></Text>
+                              <Text layoutX="65.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SUPTYPE" wrappingWidth="94.39471435546875">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font></Text>
+                              <Text layoutX="65.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" wrappingWidth="41.39404296875">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font></Text>
+                              <Text layoutX="65.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NAME" wrappingWidth="61.1995849609375">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font></Text>
+                              <Text layoutX="65.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Arrival Date" wrappingWidth="110.49627685546875">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font></Text>
+                              <Text layoutX="65.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EXP" wrappingWidth="41.39404296875">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font></Text>
+                              <Text layoutX="65.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PRICE" wrappingWidth="61.1995849609375">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font></Text>
+                              <Text layoutX="65.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AMOUNT" wrappingWidth="93.0008544921875">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font></Text>
+                              <Text layoutX="65.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PROFIT" wrappingWidth="72.09515380859375">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font></Text>
+                              <Text layoutX="65.0" layoutY="435.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Price" wrappingWidth="102.75702857971191">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font></Text>
+                              <Text layoutX="65.0" layoutY="470.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FACTORY" wrappingWidth="95.09136962890625">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font></Text>
+                              <Label fx:id="newType" layoutX="220.0" layoutY="105.0" prefHeight="18.0" prefWidth="231.0" text="newType">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font></Label>
+                              <Label fx:id="newSubType" layoutX="220.0" layoutY="140.0" prefHeight="18.0" prefWidth="231.0" text="newSubType" />
+                              <Label fx:id="newId" layoutX="220.0" layoutY="175.0" prefHeight="18.0" prefWidth="231.0" text="newId" />
+                              <Label fx:id="newName" layoutX="220.0" layoutY="210.0" prefHeight="18.0" prefWidth="231.0" text="newName" />
+                              <Label fx:id="newArrivalDate" layoutX="220.0" layoutY="245.0" prefHeight="18.0" prefWidth="231.0" text="newArrivalDate" />
+                              <Label fx:id="newEXP" layoutX="220.0" layoutY="280.0" prefHeight="18.0" prefWidth="231.0" text="newEXP" />
+                              <Label fx:id="newPrice" layoutX="220.0" layoutY="315.0" prefHeight="18.0" prefWidth="231.0" text="newPrice" />
+                              <Label fx:id="newAmount" layoutX="220.0" layoutY="350.0" prefHeight="18.0" prefWidth="231.0" text="newAmount" />
+                              <Label fx:id="newProfit" layoutX="220.0" layoutY="385.0" prefHeight="18.0" prefWidth="231.0" text="newProfit" />
+                              <Label fx:id="newFactory" layoutX="220.0" layoutY="420.0" prefHeight="18.0" prefWidth="231.0" text="newFactory" />
+                              <Label fx:id="newTotalPrice" layoutX="220.0" layoutY="455.0" prefHeight="18.0" prefWidth="231.0" text="newTotalPrice" />
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3e5e7cb8" height="87.0" layoutX="-1.0" stroke="#3e5e7c" strokeType="INSIDE" width="476.0" />
+                              <Text fill="#e0ddce" layoutX="180.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADD">
+                                 <font>
+                                    <Font name="Georgia Bold" size="48.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </JFXDialogLayout>
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

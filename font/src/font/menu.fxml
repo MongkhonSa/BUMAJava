@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: #778899;" stylesheets="@button.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="font.MenuController">
+   <children>
+      <ImageView fitHeight="193.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/buma.png" />
+         </image>
+      </ImageView>
+      <Button alignment="BASELINE_LEFT" layoutX="280.0" layoutY="250.0" mnemonicParsing="false" onAction="#ButtomDetails" prefHeight="65.0" prefWidth="230.0" text="DETAIL">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="30.0" />
+         </font>
+      </Button>
+      <Button alignment="BASELINE_LEFT" layoutX="740.0" layoutY="250.0" mnemonicParsing="false" onAction="#ButtomAdd" prefHeight="65.0" prefWidth="230.0" text="ADD">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="30.0" />
+         </font>
+      </Button>
+      <Button alignment="BASELINE_LEFT" layoutX="280.0" layoutY="450.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="230.0" text="SELL">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="30.0" />
+         </font>
+      </Button>
+      <Button alignment="BASELINE_LEFT" layoutX="740.0" layoutY="450.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="230.0" text="EDIT">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="30.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="47.0" fitWidth="44.0" layoutX="444.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/details-icon-png-cc-by-3-0--it-1.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="83.0" fitWidth="53.0" layoutX="898.0" layoutY="255.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/Ic_add_circle_outline_48px.svg.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="92.0" fitWidth="53.0" layoutX="432.0" layoutY="456.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/126851-200.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="74.0" fitWidth="53.0" layoutX="901.0" layoutY="456.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/delete1600.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
